@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-from Classes.message import Message
 from settings import EmojiType
 answers = {
     EmojiType.NONE: {
@@ -35,7 +34,7 @@ class AnswerGenerator(ABC):
     Interface of Answer Generator
     """
     @abstractmethod
-    def generate_answer(self, msg: Message, context: Message) -> str:
+    def generate_answer(self, msg, context):
         """
         Should generate answer for given Message and context
         :return: Answer string
@@ -50,7 +49,7 @@ class FSMGenerator(AnswerGenerator):
     def __init__(self):
         self.states = answers
 
-    def generate_answer(self, msg: Message, context_message: Message) -> str:
+    def generate_answer(self, msg, context_message):
         """
         Generates answer for given message and context. Uses Final-State Machine for processing
         :param msg: Input message
