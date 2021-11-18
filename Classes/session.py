@@ -11,27 +11,27 @@ class Session:
         self.stop_time = None
         self.context = None
 
-    def stop(self) -> None:
+    def stop(self):
         """
         Closes session by setting stop time
         """
         self.stop_time = datetime.datetime.now()
 
-    def get_id(self) -> int:
+    def get_id(self):
         """
         Getter for ID
         :return: ID
         """
         return self._id
 
-    def get_stop_time(self) -> datetime.datetime:
+    def get_stop_time(self):
         """
         Getter for stop time
         :return: Stop_time
         """
         return self.stop_time
 
-    def set_context(self, context) -> None:
+    def set_context(self, context):
         """
         Setter for context
         :param context: Message for save as context
@@ -54,7 +54,7 @@ class SessionManager:
         self._curr_session = None
         self._db = db
 
-    def get_session(self) -> Session:
+    def get_session(self):
         """
         Returns session if exist or returns new one
         :return: Session
@@ -63,7 +63,7 @@ class SessionManager:
             self._create_session()  # create session
         return self._curr_session  # return Session
 
-    def close_current_session(self) -> None:
+    def close_current_session(self):
         """
         Closes current stored session
         """
@@ -72,7 +72,7 @@ class SessionManager:
             self._db.close_session(self._curr_session)
             self._curr_session = None
 
-    def _create_session(self) -> None:
+    def _create_session(self):
         """
         Creates new Session
         """
