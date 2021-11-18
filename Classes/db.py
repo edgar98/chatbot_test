@@ -16,7 +16,7 @@ class DataBase:
         except sqlite3.Error as error:
             print(error)
 
-    def save_message(self, message) -> None:
+    def save_message(self, message):
         """
         Saves message in DB
         :param message: Message class object
@@ -26,7 +26,7 @@ class DataBase:
         self.cursor.execute(sql_insert_message, (message.time, message.session_id, message.text, message.session_id))
         self.con.commit()
 
-    def close_session(self, session) -> None:
+    def close_session(self, session):
         """
         Updates session stop time
         :param session: Session object
@@ -37,7 +37,7 @@ class DataBase:
         self.cursor.execute(sql_alter_session, data)
         self.con.commit()
 
-    def create_session(self, curr_time) -> int:
+    def create_session(self, curr_time):
         """
         Creates session row in DB and returns it's ID
         :param curr_time: New session start time
@@ -53,7 +53,7 @@ class DataBase:
         for row in records:
             return row[0]
 
-    def exit(self) -> None:
+    def exit(self):
         """
         Close DB connection
         """
