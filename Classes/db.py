@@ -1,8 +1,5 @@
-import datetime
 import sqlite3
 import settings
-from Classes.message import Message
-from Classes.session import Session
 
 
 class DataBase:
@@ -19,29 +16,32 @@ class DataBase:
         except sqlite3.Error as error:
             print(error)
 
-    def save_message(self, message: Message) -> None:
+    def save_message(self, message) -> None:
         """
         Saves message in DB
         :param message: Message class object
+        :type message: Classes.message.Message
         """
         sql_insert_message = 'INSERT INTO messages(msg_time, session_id, msg_text, client_id) values (?, ?, ?, ?);'
         self.cursor.execute(sql_insert_message, (message.time, message.session_id, message.text, message.session_id))
         self.con.commit()
 
-    def close_session(self, session: Session) -> None:
+    def close_session(self, session) -> None:
         """
         Updates session stop time
         :param session: Session object
+        :type session: Classes.session.Session
         """
         sql_alter_session = 'UPDATE sessions SET stop_time = ? WHERE id = ?;'
         data = (session.get_stop_time(), session.get_id())
         self.cursor.execute(sql_alter_session, data)
         self.con.commit()
 
-    def create_session(self, curr_time: datetime.datetime) -> int:
+    def create_session(self, curr_time) -> int:
         """
         Creates session row in DB and returns it's ID
         :param curr_time: New session start time
+        :type curr_time: datetime.datetime
         :return: Session ID
         """
         sql_insert_session = 'INSERT INTO sessions(start_time) VALUES (?);'
