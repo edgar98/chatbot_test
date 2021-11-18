@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from settings import EmojiType
+from Classes.settings import EmojiType
 answers = {
     EmojiType.NONE: {
         EmojiType.NONE: 'Я тебя не понимаю',

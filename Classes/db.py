@@ -1,5 +1,5 @@
 import sqlite3
-import settings
+import Classes.settings as settings
 
 
 class DataBase:
