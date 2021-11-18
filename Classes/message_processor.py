@@ -17,7 +17,7 @@ class MessageProcessor:
         self.message = None
         self.context = None
 
-    def process(self, message, context_msg) -> (str, bool):
+    def process(self, message, context_msg):
         """
         Generates answer for given message, depended on context
         :param message: Message to answer
@@ -31,7 +31,7 @@ class MessageProcessor:
         error = self._check_message()
         return self._generate_answer(), error
 
-    def _check_message(self) -> bool:
+    def _check_message(self):
         """
         Checks message in input dict
         """
@@ -41,7 +41,7 @@ class MessageProcessor:
         else:
             return True
 
-    def _generate_answer(self) -> str:
+    def _generate_answer(self):
         """
         Generates answer using answer generator
         :return:
