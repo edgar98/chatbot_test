@@ -18,14 +18,14 @@ class Message:
         self.client_id = None  # client_id isn't used anywhere in this project, so it will be equal session ID later
         self.type = EmojiType.NONE  # set default content emotional type
 
-    def set_session_id(self, session) -> None:
+    def set_session_id(self, session):
         """
         Setter for session ID
         :param session: Session object
         """
         self.session_id = session.get_id()
 
-    def set_type(self, emoji_type) -> None:
+    def set_type(self, emoji_type):
         """
         Setter for message content emotion type
         :param emoji_type: EmojiType object
