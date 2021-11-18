@@ -14,7 +14,7 @@ class Bot:
         self.message_processor = MessageProcessor(self.alphabet, FSMGenerator())
         self.session_manager = SessionManager(self.db)
 
-    def start(self) -> None:
+    def start(self):
         """
         Start bot's running
         """
