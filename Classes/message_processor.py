@@ -1,27 +1,29 @@
-from Classes.FSM_answer_generator import FSMGenerator, AnswerGenerator
-from Classes.message import Message
 
 
 class MessageProcessor:
     """
     Class for user message processing
     """
-    def __init__(self, alphabet: dict, generator: AnswerGenerator):
+    def __init__(self, alphabet, generator):
         """
         Creates instance of Message class
         :param alphabet: Dictionary of possible input
+        :type alphabet: dict
         :param generator: AnswerGenerator instance
+        :type generator: Classes.FSM_answer_generator.AnswerGenerator
         """
         self.alphabet = alphabet
         self.generator = generator
         self.message = None
         self.context = None
 
-    def process(self, message: Message, context_msg: Message) -> (str, bool):
+    def process(self, message, context_msg) -> (str, bool):
         """
         Generates answer for given message, depended on context
         :param message: Message to answer
+        :type message: Classes.message.Message
         :param context_msg: Context message
+        :type context_msg: Classes.message.Message
         :return: Answer and error if message not in possible input dict
         """
         self.message = message
