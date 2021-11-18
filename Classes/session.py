@@ -1,8 +1,5 @@
 import datetime
 
-from Classes.db import DataBase
-from Classes.message import Message
-
 
 class Session:
     """
@@ -34,14 +31,14 @@ class Session:
         """
         return self.stop_time
 
-    def set_context(self, context: Message) -> None:
+    def set_context(self, context) -> None:
         """
         Setter for context
         :param context: Message for save as context
         """
         self.context = context
 
-    def get_context(self) -> Message:
+    def get_context(self):
         """
         Getter for context
         :return: Context Message
@@ -53,7 +50,7 @@ class SessionManager:
     """
     This class describes sessions' logic
     """
-    def __init__(self, db: DataBase):
+    def __init__(self, db):
         self._curr_session = None
         self._db = db
 
